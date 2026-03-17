@@ -49,11 +49,18 @@ onMounted(() => {
   initEngine(canvasRef.value)
 })
 
-async function handleStartAR() {
+async function handleStartAR({ onSuccess, onError } = {}) {
   try {
-    await startAR()
+    const result = await startAR()
+    const msg = result?.hitTestAvailable
+      ? 'AR active — move device to scan surfaces'
+      : 'AR active (tap-to-place mode — no surface detection)'
+    toastRef.value?.show(msg, 3500)
+    onSuccess?.(result ?? { hitTestAvailable: false })
   } catch (e) {
-    toastRef.value?.show('Failed to start AR: ' + e.message, 3500)
+    const msg = e.message?.split('\n')[0] ?? 'AR failed to start'
+    toastRef.value?.show(msg, 4000)
+    onError?.(msg)
   }
 }
 

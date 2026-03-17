@@ -66,8 +66,13 @@ function onChromatic(v)    { emit('chromatic', v);        props.toast.show('Chro
 function onScanlines(v)    { emit('scanlines', v);        props.toast.show('Scanlines: ' + (v ? 'ON' : 'OFF')) }
 function onAsset(t)        { emit('asset', t);            props.toast.show('Asset: ' + t) }
 function onNodeAnimate(v)  { emit('node-animate', v);     props.toast.show('Node Animation: ' + (v ? 'ON' : 'OFF')) }
-function onStartAR()       { emit('start-ar');            props.toast.show('AR active — scan a surface & tap') }
-function onEndAR()         { emit('end-ar');              props.toast.show('AR session ended') }
+function onStartAR(callbacks) {
+  emit('start-ar', callbacks)
+}
+function onEndAR() {
+  emit('end-ar')
+  props.toast.show('AR session ended')
+}
 </script>
 
 <style scoped>

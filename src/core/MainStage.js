@@ -110,7 +110,10 @@ export class MainApp {
   setChromaticAb(on)       { postMgr.setChromaticEnabled(on) }
   setScanlines(on)         { postMgr.setScanlineEnabled(on) }
 
-  async startAR()  { return xrMgr.startAR() }
+  async startAR()  {
+    const result = await xrMgr.startAR()
+    return result ?? { hitTestAvailable: false }
+  }
   async endAR()    { return xrMgr.endAR() }
   async arSupported() { return xrMgr.isSupported() }
   get   arActive()    { return xrMgr.isActive }
