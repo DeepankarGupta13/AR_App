@@ -67,7 +67,7 @@ export class NodeManager {
   /** @type {Float32Array} */
   _nodeData = null
 
-  _animating = false
+  _animating = true
   _scene     = null
 
   /** @param {THREE.Scene} scene */

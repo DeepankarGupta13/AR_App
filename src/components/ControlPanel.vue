@@ -73,7 +73,7 @@ const shaderMode  = ref(0)
 const activeAsset = ref('sphere')
 const caOn        = ref(true)
 const slOn        = ref(false)
-const animNodes   = ref(false)
+const animNodes   = ref(true)
 
 const states = { caOn, slOn, animNodes }
 function toggle(key) { states[key].value = !states[key].value }
