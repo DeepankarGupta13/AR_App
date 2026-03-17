@@ -101,11 +101,11 @@ npm --version    # should be v9+
 ```bash
 # If cloning from git
 git clone <your-repo-url>
-cd ctruh-configurator
+cd ctruh
 
 # If you have the zip file
-unzip ctruh-vue.zip
-cd ctruh-vue
+unzip ctruh.zip
+cd ctruh
 ```
 
 ### 2. Install dependencies
@@ -137,55 +137,6 @@ npm run preview
 
 # The preview server runs at http://localhost:4173
 # Use this to test the exact production bundle before deploying
-```
-
----
-
-## Project Structure
-
-```
-ctruh-vue/
-│
-├── index.html                    # HTML entry point — mounts #app
-├── package.json                  # Dependencies and npm scripts
-├── vite.config.js                # Vite config — @ alias, base path
-│
-└── src/
-    │
-    ├── main.js                   # Creates Vue app, mounts to #app
-    ├── App.vue                   # Root component — owns canvas ref + wires events
-    ├── MainApp.js                # Engine orchestrator — init / frame loop / dispose
-    │
-    ├── managers/                 # One class = one responsibility
-    │   ├── RendererManager.js    # THREE.WebGLRenderer lifecycle
-    │   ├── CameraManager.js      # PerspectiveCamera + orbit input
-    │   ├── SceneManager.js       # Scene graph, lights, fog, ground
-    │   ├── AssetManager.js       # Primary 3D mesh + ShaderMaterial
-    │   ├── NodeManager.js        # 1024 nodes (InstancedMesh + DataTexture)
-    │   ├── PostProcessingManager.js  # EffectComposer + 2 custom passes
-    │   ├── XRManager.js          # WebXR AR session + desktop fallback
-    │   └── LoopManager.js        # requestAnimationFrame loop
-    │
-    ├── shaders/
-    │   └── triplanar.glsl.js     # Raw GLSL — vertex + fragment shader strings
-    │
-    ├── composables/
-    │   └── useEngine.js          # Vue 3 bridge: reactive state ↔ imperative engine
-    │
-    ├── components/
-    │   ├── HUD.vue               # Full screen overlay — assembles all panels
-    │   ├── StatsPanel.vue        # FPS / draw calls / triangle count
-    │   ├── MemoryPanel.vue       # renderer.info.memory live readout
-    │   ├── ControlPanel.vue      # Shader / FX / asset / node controls
-    │   ├── ARButton.vue          # AR toggle with mode badge
-    │   ├── LoaderScreen.vue      # Animated boot splash screen
-    │   └── Toast.vue             # Transient notification banner
-    │
-    ├── utils/
-    │   └── textureUtils.js       # Procedural albedo + matcap texture generators
-    │
-    └── styles/
-        └── global.css            # CSS custom properties, resets
 ```
 
 ---
